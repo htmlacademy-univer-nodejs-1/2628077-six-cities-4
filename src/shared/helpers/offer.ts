@@ -1,43 +1,54 @@
-export function createOffer(offerData: string) {
+import { RentalOffer, RentalType, UserType, RentalAmenities, City } from '../types/index.js';
+
+export function createOffer(offerData: string): RentalOffer {
   const [
     title,
-    description,
+    info,
     date,
-    town,
-    image,
-    gallery,
-    isPremium,
-    isFavorite,
+    city,
+    preview,
+    photos,
+    premium,
+    favorite,
     rating,
-    apartmentType,
-    roomCount,
-    guestCount,
-    cost,
+    type,
+    rooms,
+    guests,
+    price,
     amenities,
-    author,
-    commentCount,
+    name,
+    email,
+    avatar,
+    password,
+    userType,
     coordinates
   ] = offerData.replace('\n', '').split('\t');
 
   return {
     title,
-    description,
+    info,
     date: new Date(date),
-    town,
-    image,
-    gallery: JSON.parse(gallery),
-    isPremium: JSON.parse(isPremium),
-    isFavorite: JSON.parse(isFavorite),
-    rating: Number(rating),
-    apartmentType,
-    roomCount: Number(roomCount),
-    guestCount: Number(guestCount),
-    cost: Number(cost),
-    amenities: JSON.parse(amenities),
-    author: JSON.parse(author),
-    commentCount: Number(commentCount),
-    coordinates: JSON.parse(coordinates),
+    city: city as City,
+    preview,
+    photos: photos.split(';'),
+    premium: premium.toLowerCase() === 'true',
+    favorite: favorite.toLowerCase() === 'true',
+    rating: Number.parseInt(rating, 10),
+    type: type as RentalType,
+    rooms: Number.parseInt(rooms, 10),
+    guests: Number.parseInt(guests, 10),
+    price: Number.parseInt(price, 10),
+    amenities: amenities
+      .split(';')
+      .map((amenity) => amenity as RentalAmenities),
+    renter: {
+      name,
+      email,
+      avatar,
+      password,
+      type: userType as UserType
+    },
+    countComments: 0,
+    coordinates: coordinates.split(';').map((coordinate) => Number.parseFloat(coordinate)),
   };
 }
-
-

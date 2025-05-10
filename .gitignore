@@ -4,9 +4,9 @@
 /lib/
 /dist/
 /docs/
-/mocks/
 .idea/*
 
 .DS_Store
 coverage
 *.log
+.env

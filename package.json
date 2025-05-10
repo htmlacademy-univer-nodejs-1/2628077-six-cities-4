@@ -1,6 +1,6 @@
 {
   "name": "six-cities",
-  "version": "5.0.0",
+  "version": "4.0.0",
   "description": "Проект «Шесть городов» от HTML Academy",
   "keywords": [
     "rest",
@@ -9,24 +9,28 @@
   ],
   "main": "main.js",
   "scripts": {
-    "server": "json-server mocks/mock-server-data.json",
-    "start": "npm run build && node ./dist/main.js",
+    "start": "npm run build && node ./dist/main.rest.js",
+    "start:dev": "npm run ts ./src/main.rest.ts | pino-pretty --colorize --translateTime SYS:standard",
     "build": "npm run clean && npm run compile",
     "lint": "eslint src/ --ext .ts",
     "compile": "tsc -p tsconfig.json",
     "clean": "rimraf dist",
-    "ts": "ts-node"
+    "ts": "ts-node",
+    "mock:server": "json-server ./mocks/mock-server-data.json --port 3123"
   },
   "devDependencies": {
-    "@types/node": "18.17.17",
-    "@typescript-eslint/eslint-plugin": "6.7.0",
-    "@typescript-eslint/parser": "6.7.0",
-    "eslint": "8.49.0",
+    "@types/convict": "^6.1.6",
+    "@types/convict-format-with-validator": "^6.0.5",
+    "@types/node": "18.16.3",
+    "@typescript-eslint/eslint-plugin": "5.46.0",
+    "@typescript-eslint/parser": "5.46.0",
+    "eslint": "8.39.0",
     "eslint-config-htmlacademy": "9.1.1",
-    "json-server": "^1.0.0-beta.3",
-    "rimraf": "5.0.1",
+    "json-server": "^1.0.0-alpha.23",
+    "rimraf": "3.0.2",
     "ts-node": "10.9.1",
-    "typescript": "5.2.2"
+    "tsx": "^4.7.1",
+    "typescript": "4.9.5"
   },
   "type": "module",
   "engines": {
@@ -34,9 +38,14 @@
     "npm": ">=8"
   },
   "dependencies": {
-    "axios": "^1.7.9",
-    "chalk": "^5.4.1",
-    "dayjs": "^1.11.13",
-    "tslib": "^2.8.1"
+    "chalk": "^5.3.0",
+    "convict": "^6.2.4",
+    "convict-format-with-validator": "^6.2.0",
+    "dayjs": "^1.11.10",
+    "dotenv": "^16.4.5",
+    "got": "^12.6.1",
+    "inversify": "^6.0.2",
+    "pino": "^8.20.0",
+    "reflect-metadata": "^0.2.2"
   }
 }
