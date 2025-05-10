@@ -1,9 +1,13 @@
 import { readFileSync } from 'node:fs';
-import { Command } from './command.interface.js';
 import { resolve } from 'node:path';
+import { Command } from './command.interface.js';
 import chalk from 'chalk';
 
-function isPackageJSONConfig(value: unknown) {
+type PackageJSONConfig = {
+  version: string;
+}
+
+function isPackageJSONConfig(value: unknown): value is PackageJSONConfig {
   return (
     typeof value === 'object' &&
     value !== null &&
@@ -13,32 +17,34 @@ function isPackageJSONConfig(value: unknown) {
 }
 
 export class VersionCommand implements Command {
-  constructor(private readonly filePath: string = './package.json') {}
+  constructor(
+    private readonly filePath: string = './package.json'
+  ) {}
 
-  private readVersion() {
+  private readVersion(): string {
     const jsonContent = readFileSync(resolve(this.filePath), 'utf-8');
-    const parsedContent = JSON.parse(jsonContent);
+    const importedContent: unknown = JSON.parse(jsonContent);
 
-    if (!isPackageJSONConfig(parsedContent)) {
+    if (! isPackageJSONConfig(importedContent)) {
       throw new Error('Failed to parse json content.');
     }
 
-    return parsedContent.version;
+    return importedContent.version;
   }
 
-  public getName() {
+  public getName(): string {
     return '--version';
   }
 
-  public execute() {
+  public async execute(..._parameters: string[]): Promise<void> {
     try {
       const version = this.readVersion();
-      console.log(chalk.blue(version));
-    } catch (e) {
-      console.error('Failed to read version');
+      console.info(chalk.yellow(version));
+    } catch (error: unknown) {
+      console.error(chalk.red(`Failed to read version from ${this.filePath}`));
 
-      if (e instanceof Error) {
-        console.error(e.message);
+      if (error instanceof Error) {
+        console.error(chalk.red(error.message));
       }
     }
   }

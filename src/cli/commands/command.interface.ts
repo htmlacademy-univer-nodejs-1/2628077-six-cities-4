@@ -1,4 +1,4 @@
-export type Command = {
+export interface Command {
   getName(): string;
-  execute(...parametrs: string[]) : void;
+  execute(...parameters: string[]): void;
 }
