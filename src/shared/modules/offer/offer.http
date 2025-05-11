@@ -1,0 +1,25 @@
+GET http://localhost:5000/offers HTTP/1.1
+Content-Type: application/json
+
+
+POST http://localhost:5000/offers HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "titletitle",
+  "info": "descriptiondescription",
+  "date": "01.01.2024",
+  "city": "Paris",
+  "preview": "preview.img",
+  "photos": ["photo1", "photo2'],
+  "premium": true,
+  "favorite": true,
+  "rating": 5,
+  "type": "apartment",
+  "rooms": 3,
+  "guests": 3,
+  "price": 100,
+  "amenities": ["a"],
+  "userId": "1",
+  coordinates: ["0", "0"]
+}
