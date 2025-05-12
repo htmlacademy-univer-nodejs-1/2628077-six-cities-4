@@ -48,6 +48,11 @@ export class RestApplication {
 
   public async _initMiddleware() {
     this.server.use(express.json());
+    this.server.use(express.json());
+    this.server.use(
+      '/upload',
+      express.static(this.config.get('UPLOAD_DIRECTORY'))
+    );
   }
 
   private async _initExceptionFilters() {
@@ -75,6 +80,6 @@ export class RestApplication {
 
     this.logger.info('Try to init server…');
     await this._initServer();
-    this.logger.info(`🚀 Server started on http://localhost:${this.config.get('PORT')}`);
+    this.logger.info(`Server started on http://localhost:${this.config.get('PORT')}`);
   }
 }

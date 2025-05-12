@@ -1,5 +1,6 @@
 import {
   BaseController,
+  DocumentExistsMiddleware,
   HttpError,
   HttpMethod,
   ValidateDtoMiddleware,
@@ -15,6 +16,7 @@ import {OfferRdo} from './rdo/offer.rdo.js';
 import {CreateOfferDto} from './dto/create-offer.dto.js';
 import {UpdateOfferDto} from './dto/update-offer.dto.js';
 import {StatusCodes} from 'http-status-codes';
+import {CommentRdo, CommentService} from '../comment/index.js';
 
 @injectable()
 export class OfferController extends BaseController {
