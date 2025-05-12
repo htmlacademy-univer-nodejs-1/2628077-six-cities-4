@@ -1,0 +1,62 @@
+{
+  "offers": [
+    {
+      "name":  "Уютная квартира в центре Парижа",
+      "description": "Прекрасная квартира с видом на Эйфелеву башню. Идеальное место для отдыха после дня, проведенного в исследовании Парижа.",
+      "datePublication": "03.03.2024",
+      "city": "Paris",
+      "prevPicture": "https://upload.wikimedia.org/wikipedia/ru/thumb/a/a3/Комната_в_отеле%2C_Эдвард_Хоппер%2C_1931.jpg/1200px-Комната_в_отеле%2C_Эдвард_Хоппер%2C_1931.jpg",
+      "images": ["-", "-", "-", "-", "-"],
+      "premium": true,
+      "favorite": false,
+      "rating":  4.5,
+      "type": "apartment",
+      "countRooms": 2,
+      "countGuests": 4,
+      "price": 150,
+      "comfortable": ["Air conditioning", "Washer", "Towels"],
+      "author": "link",
+      "countComments": 10,
+      "location": "Paris (latitude: 48.85661, longitude: 2.351499)"
+    },
+    {
+      "name":  "Квартира в центре Гамбурга",
+      "description": "Прекрасная квартира с видом на Эйфелеву башню. Идеальное место для отдыха после дня, проведенного в исследовании Парижа.",
+      "datePublication": "03.03.2024",
+      "city": "Hamburg",
+      "prevPicture": "https://upload.wikimedia.org/wikipedia/ru/thumb/a/a3/Комната_в_отеле%2C_Эдвард_Хоппер%2C_1931.jpg/1200px-Комната_в_отеле%2C_Эдвард_Хоппер%2C_1931.jpg",
+      "images": ["-", "-", "-", "-", "-"],
+      "premium": false,
+      "favorite": false,
+      "rating":  4.5,
+      "type": "apartment",
+      "countRooms": 2,
+      "countGuests": 4,
+      "price": 150,
+      "comfortable": ["Air conditioning", "Washer", "Towels"],
+      "author": "link",
+      "countComments": 10,
+      "location": "Hamburg (latitude: 53.550341, longitude: 10.000654)"
+
+    },
+    {
+      "name":  "Уютный дом возле озера в Амстердаме",
+      "description": "Прекрасный дом с садом и видом на озеро. Идеальное место для семейного отдыха или романтического уикенда.",
+      "datePublication": "03.03.2024",
+      "city": "Amsterdam",
+      "prevPicture": "https://upload.wikimedia.org/wikipedia/ru/thumb/a/a3/Комната_в_отеле%2C_Эдвард_Хоппер%2C_1931.jpg/1200px-Комната_в_отеле%2C_Эдвард_Хоппер%2C_1931.jpg",
+      "images": ["-", "-", "-", "-", "-"],
+      "premium": true,
+      "favorite": false,
+      "rating":  5,
+      "type": "house",
+      "countRooms": 3,
+      "countGuests": 6,
+      "price": 300,
+      "comfortable": ["Breakfast", "Air conditioning", "Washer", "Fridge"],
+      "author": "link",
+      "countComments": 25,
+      "location": "Amsterdam (latitude: 52.370216, longitude: 4.895168)"
+    }
+  ]
+}
